@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08090a" />
+    <meta name="description" content="ZENITH — Engineered to Explore. The official rocketry team of SVKM's NMIMS MPSTME." />
+    <title>ZENITH — Engineered to Explore</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="importmap">
+      { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js" } }
+    </script>
+    <link rel="icon" href="./zenith-logo-transparent.png" type="image/png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="page-transition" aria-hidden="true" hidden>
+      <div class="transition-tab"><span class="transition-mark"></span><span>PREPARING FLIGHT</span><span class="transition-coordinate">ZENITH / MPSTME</span></div>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Zenith home">
+        <img src="./zenith-logo-transparent.png" alt="ZENITH" />
+        <span class="brand-divider"></span>
+        <span class="brand-caption">MPSTME<br />ROCKETRY TEAM</span>
+      </a>
+      <a class="header-link about-link" href="#team">ABOUT US <span aria-hidden="true">↗</span></a>
+      <div class="header-utility">
+        <a class="header-link" href="./team.html">MEET THE TEAM <span aria-hidden="true">↗</span></a>
+        <a class="university-mark" href="https://engineering.nmims.edu/" aria-label="Mukesh Patel School of Technology Management and Engineering, NMIMS">
+          <img src="./mpstme-logo-transparent.png" alt="SVKM's NMIMS Mukesh Patel School of Technology Management and Engineering" />
+        </a>
+      </div>
+    </header>
+
+    <div class="scroll-meter" aria-hidden="true"><span id="scroll-progress"></span></div>
+    <main>
+      <section class="mission" id="vehicle" aria-label="Explore the rocket">
+        <div class="stage" aria-label="Interactive 3D rocket model">
+          <div id="rocket-stage" class="rocket-stage">
+            <svg class="callout-overlay" aria-hidden="true" preserveAspectRatio="none">
+              <path id="callout-leader"></path>
+              <circle id="callout-target-ring" r="7"></circle>
+              <circle id="callout-target-dot" r="2.5"></circle>
+            </svg>
+            <div class="part-callout" id="part-callout" aria-live="polite">
+              <span class="callout-index" id="part-index">00</span>
+              <span class="callout-name" id="part-name">FLIGHT VEHICLE</span>
+            </div>
+          </div>
+          <div class="stage-grid" aria-hidden="true"></div>
+          <div class="stage-hud" aria-hidden="true">
+            <span class="hud-coordinate">19°06' N&nbsp; / &nbsp;72°52' E</span>
+            <span class="hud-divider"></span>
+            <span class="hud-status"><i></i><b id="model-status">MODEL INITIALIZING</b></span>
+          </div>
+          <div class="stage-readout" aria-hidden="true"><span>ZENITH / FLIGHT SYSTEMS</span><span id="readout-angle">AZ 000° &nbsp; EL 014°</span></div>
+          <div class="stage-loader" id="stage-loader"><span class="loader-ring"></span><span>LOADING FLIGHT VEHICLE</span></div>
+          <div class="stage-error" id="stage-error" hidden>3D VIEW UNAVAILABLE<br /><span>Scroll to explore the flight system</span></div>
+        </div>
+
+        <div class="intro chapter is-active" id="top" data-chapter="0">
+          <div class="intro-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> SVKM'S NMIMS MPSTME &nbsp; / &nbsp; OFFICIAL ROCKETRY TEAM</p>
+            <h1>ZENITH</h1>
+            <p class="tagline">Engineered to <span>Explore.</span></p>
+            <p class="intro-note">Curiosity, made tangible.<br />Built by students. Driven by the sky.</p>
+            <a class="scroll-cue" href="#nose"><span class="scroll-cue-icon">↓</span><span class="scroll-cue-text">SCROLL TO EXPLORE</span><span class="scroll-cue-rule"></span></a>
+          </div>
+          <div class="intro-index" aria-hidden="true"><span>01</span> / 05</div>
+        </div>
+
+        <div class="chapters">
+          <article class="chapter" id="nose" data-chapter="1" data-part="PAYLOAD FAIRING">
+            <div class="chapter-copy">
+              <p class="eyebrow"><span class="chapter-number">01</span> &nbsp; / &nbsp; THE BEGINNING</p>
+              <h2>Made for<br /><em>what's next.</em></h2>
+              <p class="chapter-body">Every mission begins with an idea. The nose leads the way, shaping a clean path through the atmosphere and protecting what the rocket carries forward.</p>
+              <div class="chapter-meta"><span>01 / 04</span><span>PAYLOAD FAIRING</span></div>
+            </div>
+            <span class="chapter-side-note">AERODYNAMIC ENVELOPE&nbsp; / &nbsp;01</span>
+          </article>
+
+          <article class="chapter" id="airframe" data-chapter="2" data-part="AIRFRAME">
+            <div class="chapter-copy">
+              <p class="eyebrow"><span class="chapter-number">02</span> &nbsp; / &nbsp; THE STRUCTURE</p>
+              <h2>Strength in<br /><em>every layer.</em></h2>
+              <p class="chapter-body">A precise, lightweight airframe keeps the vehicle stable under pressure. Designed as a system, every component works in concert from rail to recovery.</p>
+              <div class="chapter-meta"><span>02 / 04</span><span>PRIMARY AIRFRAME</span></div>
+            </div>
+            <span class="chapter-side-note">STRUCTURAL SYSTEM&nbsp; / &nbsp;02</span>
+          </article>
+
+          <article class="chapter" id="avionics" data-chapter="3" data-part="AVIONICS BAY">
+            <div class="chapter-copy">
+              <p class="eyebrow"><span class="chapter-number">03</span> &nbsp; / &nbsp; THE INTELLIGENCE</p>
+              <h2>Know where<br /><em>you are.</em></h2>
+              <p class="chapter-body">Inside the avionics bay, sensors and onboard electronics turn flight into information: attitude, altitude and a clear picture of the journey.</p>
+              <div class="chapter-meta"><span>03 / 04</span><span>FLIGHT AVIONICS</span></div>
+            </div>
+            <span class="chapter-side-note">GUIDANCE &amp; TELEMETRY&nbsp; / &nbsp;03</span>
+          </article>
+
+          <article class="chapter" id="propulsion" data-chapter="4" data-part="PROPULSION">
+            <div class="chapter-copy">
+              <p class="eyebrow"><span class="chapter-number">04</span> &nbsp; / &nbsp; THE LIFTOFF</p>
+              <h2>Built to<br /><em>break away.</em></h2>
+              <p class="chapter-body">The propulsion system converts a carefully engineered design into motion, delivering the force that carries each mission beyond its starting point.</p>
+              <div class="chapter-meta"><span>04 / 04</span><span>PROPULSION SYSTEM</span></div>
+            </div>
+            <span class="chapter-side-note">THRUST&nbsp; / &nbsp;TRAJECTORY&nbsp; / &nbsp;04</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="team-section" id="team">
+        <div class="team-mark" aria-hidden="true"><img src="./zenith-logo-transparent.png" alt="" /></div>
+        <div class="team-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> THE PEOPLE BEHIND THE TRAJECTORY</p>
+          <h2>Different minds.<br /><em>One direction.</em></h2>
+          <p>A student-led rocketry team at SVKM's NMIMS MPSTME, bringing engineering, experimentation and imagination together to reach a little further.</p>
+          <a class="team-link" href="#vehicle"><span>EXPLORE THE VEHICLE</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="team-coordinate">19°06' N<br />72°52' E<br /><span>MUMBAI, INDIA</span></p>
+      </section>
+    </main>
+    <footer class="site-footer"><span>ZENITH ROCKETRY TEAM</span><span>SVKM'S NMIMS MPSTME &nbsp; / &nbsp; MUMBAI, INDIA</span><span>ENGINEERED TO EXPLORE &nbsp; © 2026</span></footer>
+
+    <div class="pointer-reticle" aria-hidden="true"><span></span></div>
+    <script src="./navigation.js" defer></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
