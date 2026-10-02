@@ -29,14 +29,15 @@ if (renderer) {
   scene.add(rim);
 
   const rocket = new THREE.Group();
-  rocket.position.set(innerWidth < 760 ? 1 : 3.2, -.2, 0);
+  const isMobile = innerWidth < 760;
+  rocket.position.set(isMobile ? 1 : 3.2, isMobile ? -.2 : -1.1, 0);
   scene.add(rocket);
 
   new GLTFLoader().load('./gslv_mk3.glb', ({ scene: model }) => {
     const bounds = new THREE.Box3().setFromObject(model);
     const center = bounds.getCenter(new THREE.Vector3());
     const dimensions = bounds.getSize(new THREE.Vector3());
-    const scale = 7.2 / Math.max(dimensions.x, dimensions.y, dimensions.z);
+    const scale = (isMobile ? 7.2 : 9.5) / Math.max(dimensions.x, dimensions.y, dimensions.z);
     model.position.copy(center).multiplyScalar(-scale);
     model.scale.setScalar(scale);
     rocket.add(model);
@@ -49,6 +50,7 @@ if (renderer) {
     camera.updateProjectionMatrix();
     renderer.setSize(bounds.width, bounds.height);
     rocket.position.x = innerWidth < 760 ? 1 : 3.2;
+    rocket.position.y = innerWidth < 760 ? -.2 : -1.1;
     render();
   }
 

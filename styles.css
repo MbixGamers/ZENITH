@@ -168,7 +168,7 @@ a { color: inherit; text-decoration: none; }
 .contact-page { min-height: 100vh; background: radial-gradient(ellipse at 50% 42%, rgba(104, 130, 92, .12), transparent 43%), var(--black); }
 .contact-page main { min-height: 100svh; padding-top: 82px; }
 .contact-hero { position: relative; isolation: isolate; min-height: calc(100svh - 82px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 70px 8vw 86px; overflow: hidden; text-align: center; }
-.contact-model { position: absolute; inset: 0; z-index: 0; opacity: .24; pointer-events: none; }
+.contact-model { position: absolute; inset: 0; z-index: 0; opacity: .16; pointer-events: none; }
 .contact-model canvas { display: block; width: 100%; height: 100%; filter: grayscale(.55); }
 .contact-hero::before { position: absolute; inset: 0; z-index: 1; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 74px 74px; mask-image: radial-gradient(ellipse at center, #000, transparent 74%); content: ''; pointer-events: none; }
 .contact-hero > :not(.contact-model) { position: relative; z-index: 2; }
