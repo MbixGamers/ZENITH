@@ -19,6 +19,7 @@ const calloutLeader = document.querySelector('#callout-leader');
 const calloutTargetRing = document.querySelector('#callout-target-ring');
 const calloutTargetDot = document.querySelector('#callout-target-dot');
 const calloutOverlay = document.querySelector('.callout-overlay');
+const getRenderPixelRatio = () => Math.min(Math.max(devicePixelRatio, innerWidth < 760 ? 1.25 : 1.6), innerWidth < 760 ? 1.75 : 2.25);
 
 let renderer;
 let rocket;
@@ -35,8 +36,8 @@ camera.position.set(8.8, 3.3, 15);
 camera.lookAt(0, 0, 0);
 
 try {
-  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: innerWidth > 760, powerPreference: 'low-power' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 760 ? 1.15 : 1.6));
+  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(getRenderPixelRatio());
   const stageSize = mount.getBoundingClientRect();
   camera.aspect = stageSize.width / stageSize.height;
   camera.updateProjectionMatrix();
@@ -219,7 +220,7 @@ if (renderer) {
     const size = mount.getBoundingClientRect();
     camera.aspect = size.width / size.height;
     camera.updateProjectionMatrix();
-    renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 760 ? 1.15 : 1.6));
+    renderer.setPixelRatio(getRenderPixelRatio());
     renderer.setSize(size.width, size.height);
     setChapter(activeChapter);
   }, { passive: true });

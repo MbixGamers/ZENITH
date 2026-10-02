@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="importmap">
+      { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js" } }
+    </script>
     <link rel="icon" href="./zenith-logo-transparent.png" type="image/png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -37,6 +40,7 @@
 
     <main>
       <section class="contact-hero" aria-labelledby="contact-title">
+        <div class="contact-model" aria-hidden="true"></div>
         <p class="eyebrow"><span class="eyebrow-dot"></span> ZENITH / EXECUTIVE RECRUITMENTS</p>
         <h1 id="contact-title">YOUR NEXT<br /><span>MISSION STARTS HERE.</span></h1>
         <p class="contact-intro">Ready to build, lead, and explore with us? The executive recruitment window is open now.</p>
@@ -56,11 +60,11 @@
           <span>EXECUTIVE RECRUITMENTS LIVE!</span>
           <span aria-hidden="true">↗</span>
         </a>
-        <span class="contact-coordinates">SVKM'S NMIMS MPSTME &nbsp; / &nbsp; MUMBAI, INDIA</span>
       </section>
     </main>
     <footer class="site-footer"><span>ZENITH ROCKETRY TEAM</span><span>SVKM'S NMIMS MPSTME &nbsp; / &nbsp; MUMBAI, INDIA</span><span>ENGINEERED TO EXPLORE &nbsp; © 2026</span></footer>
     <script src="./navigation.js" defer></script>
     <script src="./contact.js" defer></script>
+    <script type="module" src="./contact-model.js"></script>
   </body>
 </html>
