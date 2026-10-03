@@ -73,7 +73,7 @@ if (renderer) {
   }
   const starGeometry = new THREE.BufferGeometry();
   starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-  const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xc7cbd0, size: .018, transparent: true, opacity: .6, sizeAttenuation: true }));
+  const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xd8dde2, size: .12, transparent: true, opacity: .42, sizeAttenuation: true }));
   scene.add(stars);
 
   const root = new THREE.Group();

@@ -35,7 +35,7 @@ a { color: inherit; text-decoration: none; }
 .scroll-meter { position: fixed; right: 0; top: 82px; z-index: 25; width: 2px; height: calc(100svh - 82px); background: rgba(255,255,255,.08); }
 .scroll-meter span { display: block; width: 100%; height: 0; background: #eee; transform-origin: top; }
 
-.mission { position: relative; min-height: 500svh; isolation: isolate; }
+.mission { position: relative; min-height: 500svh; isolation: isolate; overflow: clip; }
 .stage { position: sticky; top: 0; z-index: -1; height: 100svh; margin-bottom: -100svh; overflow: hidden; pointer-events: none; }
 .rocket-stage { position: absolute; inset: 0; z-index: 1; }
 .rocket-stage canvas { display: block; width: 100%; height: 100%; filter: grayscale(.85); }
