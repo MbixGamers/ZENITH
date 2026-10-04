@@ -29,28 +29,43 @@ if (renderer) {
   scene.add(rim);
 
   const rocket = new THREE.Group();
-  const isMobile = innerWidth < 760;
-  rocket.position.set(isMobile ? 1 : 3.2, isMobile ? -.2 : -1.1, 0);
   scene.add(rocket);
+  let rocketModel;
+  let modelCenter;
+  let modelSize;
 
   new GLTFLoader().load('./gslv_mk3.glb', ({ scene: model }) => {
     const bounds = new THREE.Box3().setFromObject(model);
-    const center = bounds.getCenter(new THREE.Vector3());
-    const dimensions = bounds.getSize(new THREE.Vector3());
-    const scale = (isMobile ? 7.2 : 9.5) / Math.max(dimensions.x, dimensions.y, dimensions.z);
-    model.position.copy(center).multiplyScalar(-scale);
-    model.scale.setScalar(scale);
+    modelCenter = bounds.getCenter(new THREE.Vector3());
+    modelSize = bounds.getSize(new THREE.Vector3());
+    rocketModel = model;
     rocket.add(model);
+    resize();
     render();
   }, undefined, (error) => console.warn('Contact background model failed to load.', error));
 
   function resize() {
     const bounds = mount.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
     camera.aspect = bounds.width / bounds.height;
     camera.updateProjectionMatrix();
     renderer.setSize(bounds.width, bounds.height);
-    rocket.position.x = innerWidth < 760 ? 1 : 3.2;
-    rocket.position.y = innerWidth < 760 ? -.2 : -1.1;
+    if (rocketModel) {
+      const distance = camera.position.z - rocket.position.z;
+      const verticalHalfFov = THREE.MathUtils.degToRad(camera.fov / 2);
+      const horizontalHalfFov = Math.atan(Math.tan(verticalHalfFov) * camera.aspect);
+      const halfViewWidth = distance * Math.tan(horizontalHalfFov);
+      const halfViewHeight = distance * Math.tan(verticalHalfFov);
+      const halfWidth = Math.hypot(modelSize.x, modelSize.z) / 2;
+      const halfHeight = (modelSize.y + modelSize.x * .05 + modelSize.z * .05) / 2;
+      const edgeMargin = halfViewWidth * .025;
+      const heightScale = halfViewHeight * 1.88 / (2 * halfHeight);
+      const widthScale = (halfViewWidth - edgeMargin) / halfWidth;
+      const scale = Math.min(heightScale, widthScale);
+      rocket.position.x = halfViewWidth - halfWidth * scale - edgeMargin;
+      rocketModel.position.copy(modelCenter).multiplyScalar(-scale);
+      rocketModel.scale.setScalar(scale);
+    }
     render();
   }
 
